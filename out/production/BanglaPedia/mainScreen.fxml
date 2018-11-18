@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="527.0" prefWidth="798.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainScreenController">
+   <children>
+      <AnchorPane prefHeight="52.0" prefWidth="798.0" style="-fx-background-color: #8559da;">
+         <children>
+            <Label layoutX="14.0" layoutY="11.0" text="Bangla Pedia" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Regular" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Label layoutX="294.0" layoutY="117.0" text="Search to get started!">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="tmpSearchQueryField" layoutX="179.0" layoutY="203.0" onKeyTyped="#tmpSearchQueryFieldClicked" onMouseClicked="#tmpSearchQueryFieldClicked" prefHeight="26.0" prefWidth="440.0" promptText="Search Query" />
+      <VBox fx:id="queryPane" layoutY="52.0" prefHeight="475.0" prefWidth="798.0" style="-fx-background-color: white;">
+         <children>
+            <HBox>
+               <children>
+                  <JFXTextField fx:id="searchQueryField" prefWidth="629.0">
+                     <padding>
+                        <Insets bottom="15.0" />
+                     </padding>
+                  </JFXTextField>
+                  <JFXButton prefHeight="28.0" prefWidth="109.0" ripplerFill="#0cf700" text="Search">
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
