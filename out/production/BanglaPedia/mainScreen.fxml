@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXProgressBar?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -13,14 +14,14 @@
    <children>
       <AnchorPane prefHeight="52.0" prefWidth="798.0" style="-fx-background-color: #8559da;">
          <children>
-            <Label layoutX="14.0" layoutY="11.0" text="Bangla Pedia" textFill="WHITE">
+            <Label layoutX="14.0" layoutY="11.0" text="বাংলা পিডিয়া" textFill="WHITE">
                <font>
                   <Font name="Roboto Regular" size="25.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <Label layoutX="294.0" layoutY="117.0" text="Search to get started!">
+      <Label layoutX="294.0" layoutY="117.0" text="শুরু করতে অনুসন্ধান করুন!">
          <font>
             <Font size="19.0" />
          </font>
@@ -35,7 +36,7 @@
                         <Insets bottom="15.0" />
                      </padding>
                   </JFXTextField>
-                  <JFXButton prefHeight="28.0" prefWidth="109.0" ripplerFill="#0cf700" text="Search">
+                  <JFXButton fx:id="searchButton" onAction="#searchButtonClicked" prefHeight="28.0" prefWidth="109.0" ripplerFill="#0cf700" text="অনুসন্ধান">
                      <HBox.margin>
                         <Insets left="50.0" />
                      </HBox.margin>
@@ -48,6 +49,11 @@
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </padding>
             </HBox>
+            <JFXProgressBar fx:id="progressBar" prefHeight="4.0" prefWidth="795.0">
+               <VBox.margin>
+                  <Insets bottom="50.0" left="50.0" right="50.0" top="10.0" />
+               </VBox.margin>
+            </JFXProgressBar>
          </children>
       </VBox>
    </children>

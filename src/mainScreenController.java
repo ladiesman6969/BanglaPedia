@@ -5,6 +5,7 @@ import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
@@ -29,6 +30,7 @@ public class mainScreenController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        System.setProperty("jsse.enableSNIExtension", "false");
         queryPane.setTranslateY(475);
         progressBar.setVisible(false);
     }
@@ -62,14 +64,23 @@ public class mainScreenController implements Initializable {
         searchButton.setDisable(true);
         progressBar.setVisible(true);
 
-        try
-        {
-            String htmlToProcess = getHttpResponse("")
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
+        Task<Void> t = new Task<Void>() {
+            @Override
+            protected Void call(){
+                try
+                {
+                    String htmlToProcess = getHttpResponse("https://bn.banglapedia.org/index.php?search="+searchQueryField.getText()+"&fulltext=অনুসন্ধান");
+                    System.out.println(htmlToProcess);
+                }
+                catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        };
+
+        new Thread(t).start();
 
         searchQueryField.setDisable(false);
         searchButton.setDisable(false);
