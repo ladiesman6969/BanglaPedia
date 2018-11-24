@@ -233,7 +233,15 @@ public class mainScreenController implements Initializable {
                 protected Void call() {
                     try
                     {
-                        String toBeWritten = "Bangla Pedia Extracter\nBy Debayan Sutradhar (github.com/ladiesman6969)\n\nExtracted From : "+currentLink+"\n\n"+heading+"\n\n\n"+content;
+                        String toBeWritten;
+                        if(System.getProperty("os.name").toLowerCase().contains("win"))
+                        {
+                            toBeWritten = "Bangla Pedia Extracter\nBy Debayan Sutradhar (github.com/ladiesman6969)\n\nExtracted From : "+currentLink+"\n\n"+heading+"\n\n\n"+content;
+                        }
+                        else
+                        {
+                            toBeWritten  = "Bangla Pedia Extracter\r\nBy Debayan Sutradhar (github.com/ladiesman6969)\r\n\r\nExtracted From : "+currentLink+"\r\n\r\n"+heading+"\r\n\r\n\r\n"+content;
+                        }
                         Writer out = new BufferedWriter(new OutputStreamWriter(
                                 new FileOutputStream(file.toString()), "UTF-8"));
                         try {
