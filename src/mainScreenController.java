@@ -185,18 +185,10 @@ public class mainScreenController implements Initializable {
                             headingLabel.setText(heading);
                             contentLabel.setText(content);
                             progressBar.setVisible(false);
-                            try
-                            {
-                                Thread.sleep(500);
-                            }
-                            catch (Exception e)
-                            {
-                                e.printStackTrace();
-                            }
-                            System.gc();
                             KeyFrame f1 = new KeyFrame(Duration.millis(500),new KeyValue(documentPane.translateYProperty(),0,Interpolator.EASE_IN));
                             documentPane.toFront();
                             new Timeline(f1).play();
+                            System.gc();
                         }
                     });
                 }
@@ -242,9 +234,13 @@ public class mainScreenController implements Initializable {
                     try
                     {
                         String toBeWritten = "Bangla Pedia Extracter\nBy Debayan Sutradhar (github.com/ladiesman6969)\n\nExtracted From : "+currentLink+"\n\n"+heading+"\n\n\n"+content;
-                        FileWriter fw = new FileWriter(new File(file.toURI()));
-                        fw.write(toBeWritten);
-                        fw.close();
+                        Writer out = new BufferedWriter(new OutputStreamWriter(
+                                new FileOutputStream(file.toString()), "UTF-8"));
+                        try {
+                            out.write(toBeWritten);
+                        } finally {
+                            out.close();
+                        }
                         System.out.println("Done!");
                         Platform.runLater(new Runnable() {
                             @Override
