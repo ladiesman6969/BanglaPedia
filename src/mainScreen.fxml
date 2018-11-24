@@ -22,12 +22,56 @@
             </Label>
          </children>
       </AnchorPane>
-      <Label layoutX="294.0" layoutY="117.0" text="শুরু করতে অনুসন্ধান করুন!">
+      <Label layoutX="243.0" layoutY="117.0" text="শুরু করতে অনুসন্ধান করুন!">
          <font>
-            <Font size="19.0" />
+            <Font size="30.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="tmpSearchQueryField" layoutX="179.0" layoutY="203.0" onKeyTyped="#tmpSearchQueryFieldClicked" onMouseClicked="#tmpSearchQueryFieldClicked" prefHeight="26.0" prefWidth="440.0" promptText="Search Query" />
+      <JFXTextField fx:id="tmpSearchQueryField" layoutX="179.0" layoutY="203.0" onKeyTyped="#tmpSearchQueryFieldClicked" onMouseClicked="#tmpSearchQueryFieldClicked" prefHeight="26.0" prefWidth="440.0" promptText="প্রশ্ন" />
+      <Label layoutX="270.0" layoutY="480.0" text="দেবায়ন সূত্রধার দ্বারা নির্মিত&#10;https://github.com/ladiesman6969/BanglaPedia" textAlignment="CENTER" />
+      <VBox fx:id="documentPane" layoutY="52.0" prefHeight="475.0" prefWidth="798.0" style="-fx-background-color: white;">
+         <children>
+            <HBox prefWidth="200.0">
+               <children>
+                  <Label fx:id="headingLabel" prefHeight="34.0" prefWidth="421.0">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </Label>
+                  <JFXButton buttonType="RAISED" onAction="#saveAsButtonClicked" ripplerFill="#37ff00" text="Save As ...">
+                     <HBox.margin>
+                        <Insets left="200.0" top="5.0" />
+                     </HBox.margin>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" onAction="#closeDocumentPane" ripplerFill="RED" text="X" textFill="#b9b9b9">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font></JFXButton>
+               </children>
+            </HBox>
+            <ScrollPane prefHeight="379.0" prefWidth="768.0">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+               <content>
+                  <Label fx:id="contentLabel" maxWidth="766.0" prefWidth="766.0" wrapText="true">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </padding>
+                  </Label>
+               </content>
+            </ScrollPane>
+         </children>
+         <padding>
+            <Insets left="15.0" right="15.0" top="15.0" />
+         </padding>
+      </VBox>
       <VBox fx:id="queryPane" layoutY="52.0" prefHeight="475.0" prefWidth="798.0" style="-fx-background-color: white;">
          <children>
             <HBox>
@@ -68,38 +112,6 @@
          </children>
          <padding>
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-         </padding>
-      </VBox>
-      <VBox fx:id="documentPane" layoutY="52.0" prefHeight="475.0" prefWidth="798.0" style="-fx-background-color: white;">
-         <children>
-            <HBox prefWidth="200.0">
-               <children>
-                  <Label fx:id="headingLabel" text="Heading">
-                     <font>
-                        <Font size="29.0" />
-                     </font>
-                  </Label>
-                  <JFXButton />
-               </children>
-            </HBox>
-            <ScrollPane prefHeight="379.0" prefWidth="768.0">
-               <VBox.margin>
-                  <Insets top="15.0" />
-               </VBox.margin>
-               <content>
-                  <Label fx:id="contentLabel" maxWidth="766.0" prefWidth="766.0" text="Content" wrapText="true">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                     </padding>
-                  </Label>
-               </content>
-            </ScrollPane>
-         </children>
-         <padding>
-            <Insets left="15.0" right="15.0" />
          </padding>
       </VBox>
    </children>

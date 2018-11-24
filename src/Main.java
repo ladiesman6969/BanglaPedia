@@ -13,8 +13,10 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 798.0,527.0));
         primaryStage.setResizable(false);
         primaryStage.show();
+        ps = primaryStage;
     }
 
+    static Stage ps;
 
     public static void main(String[] args) {
         launch(args);

@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="BanglaPedia:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/BanglaPedia_jar</output-path>
+    <root id="archive" name="BanglaPedia.jar">
+      <element id="module-output" name="BanglaPedia" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/jfoenix/jfoenix/9.0.6/jfoenix-9.0.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jsoup/jsoup/1.11.3/jsoup-1.11.3.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
