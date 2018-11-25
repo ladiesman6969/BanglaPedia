@@ -2,10 +2,6 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXProgressBar;
 import com.jfoenix.controls.JFXRippler;
 import com.jfoenix.controls.JFXTextField;
-import javafx.animation.Interpolator;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.event.EventHandler;
@@ -15,9 +11,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
@@ -60,8 +54,10 @@ public class mainScreenController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.setProperty("jsse.enableSNIExtension", "false");
-        queryPane.setTranslateY(475);
-        documentPane.setTranslateY(475);
+        queryPane.setVisible(false);
+        queryPane.toBack();
+        documentPane.setVisible(false);
+        documentPane.toBack();
         progressBar.setVisible(false);
     }
 
@@ -71,9 +67,8 @@ public class mainScreenController implements Initializable {
         searchQueryField.setText(tmpSearchQueryField.getText());
         tmpSearchQueryField.setDisable(true);
         tmpSearchQueryField.setText("");
-        KeyFrame f1 = new KeyFrame(Duration.millis(300),new KeyValue(queryPane.translateYProperty(),0,Interpolator.EASE_IN));
+        queryPane.setVisible(true);
         queryPane.toFront();
-        new Timeline(f1).play();
     }
 
     @FXML
@@ -185,9 +180,8 @@ public class mainScreenController implements Initializable {
                             headingLabel.setText(heading);
                             contentLabel.setText(content);
                             progressBar.setVisible(false);
-                            KeyFrame f1 = new KeyFrame(Duration.millis(500),new KeyValue(documentPane.translateYProperty(),0,Interpolator.EASE_IN));
+                            documentPane.setVisible(true);
                             documentPane.toFront();
-                            new Timeline(f1).play();
                             System.gc();
                         }
                     });
@@ -210,9 +204,9 @@ public class mainScreenController implements Initializable {
         resultsVBox.setDisable(false);
         searchQueryField.setDisable(false);
         searchButton.setDisable(false);
-        KeyFrame f1 = new KeyFrame(Duration.millis(500),new KeyValue(documentPane.translateYProperty(),475,Interpolator.EASE_IN));
-        documentPane.toFront();
-        new Timeline(f1).play();
+        documentPane.setVisible(false);
+        queryPane.setVisible(true);
+        queryPane.toFront();
     }
 
     @FXML
