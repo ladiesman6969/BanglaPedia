@@ -1,3 +1,5 @@
+//importing the necessary node classes.
+//A node is any UI element.
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXProgressBar;
 import com.jfoenix.controls.JFXRippler;
@@ -28,6 +30,25 @@ import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class mainScreenController implements Initializable {
+
+    /*
+    mainScreenController class
+    Implements the Initializable Interface.
+
+    Implementing Interface means to have all the classes of that Interface
+
+    By extending class, we can call "super.<methodName>()" to call the actual method of the extending class.
+    But in an Interface, there is actually no code inside the declared methods.
+    Its just a skeleton.
+
+    You can implement as much Interfaces as you want
+    but u can extend only one class.ds 
+     */
+
+    //Adding the @FXML annotation for telling the JVM that these nodes
+    //actually exist in the original FXML file
+    //and that it needs to import them from the FXML file.
+
     @FXML
     private JFXTextField tmpSearchQueryField;
     @FXML
@@ -47,12 +68,16 @@ public class mainScreenController implements Initializable {
     @FXML
     private Label contentLabel;
 
-    String heading;
-    String content;
-    String currentLink;
+
+    //Create Global variables so that all the methods of the class can access this.
+    //However, these variables cannot be accessed from any other classes in the project.
+    private String heading;
+    private String content;
+    private String currentLink;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         System.setProperty("jsse.enableSNIExtension", "false");
         queryPane.setVisible(false);
         queryPane.toBack();
