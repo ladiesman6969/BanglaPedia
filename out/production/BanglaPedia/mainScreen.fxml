@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="527.0" prefWidth="798.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainScreenController">
+<AnchorPane prefHeight="527.0" prefWidth="798.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainScreenController">
    <children>
       <AnchorPane prefHeight="52.0" prefWidth="798.0" style="-fx-background-color: #8559da;">
          <children>
@@ -57,14 +57,11 @@
                   <Insets top="15.0" />
                </VBox.margin>
                <content>
-                  <Label fx:id="contentLabel" maxWidth="766.0" prefWidth="766.0" wrapText="true">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
+                  <VBox fx:id="contentVBox" prefWidth="750.0" spacing="20.0">
                      <padding>
-                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
-                  </Label>
+                  </VBox>
                </content>
             </ScrollPane>
          </children>
